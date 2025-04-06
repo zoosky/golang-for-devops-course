@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -42,7 +41,7 @@ func initConfig() {
 	if cfgFilePath == "" {
 		cfgFilePath = "tls.yaml"
 	}
-	cfgFileBytes, err := ioutil.ReadFile(cfgFilePath)
+	cfgFileBytes, err := os.ReadFile(cfgFilePath)
 	if err != nil {
 		fmt.Printf("Error while reading config file: %s\n", err)
 		return

@@ -7,7 +7,7 @@ import (
 	"crypto/x509"
 	"crypto/x509/pkix"
 	"encoding/pem"
-	"io/ioutil"
+	"os"
 	"time"
 
 	"github.com/wardviaene/golang-for-devops-course/tls-demo/pkg/key"
@@ -39,10 +39,10 @@ func CreateCACert(ca *CACert, keyFilePath, caCertFilePath string) error {
 		return err
 	}
 
-	if err := ioutil.WriteFile(keyFilePath, keyBytes, 0600); err != nil {
+	if err := os.WriteFile(keyFilePath, keyBytes, 0600); err != nil {
 		return err
 	}
-	if err := ioutil.WriteFile(caCertFilePath, certBytes, 0644); err != nil {
+	if err := os.WriteFile(caCertFilePath, certBytes, 0644); err != nil {
 		return err
 	}
 
@@ -83,10 +83,10 @@ func CreateCert(cert *Cert, caKey []byte, caCert []byte, keyFilePath, certFilePa
 		return err
 	}
 
-	if err := ioutil.WriteFile(keyFilePath, keyBytes, 0600); err != nil {
+	if err := os.WriteFile(keyFilePath, keyBytes, 0600); err != nil {
 		return err
 	}
-	if err := ioutil.WriteFile(certFilePath, certBytes, 0644); err != nil {
+	if err := os.WriteFile(certFilePath, certBytes, 0644); err != nil {
 		return err
 	}
 

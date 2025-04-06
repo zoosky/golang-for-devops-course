@@ -1,6 +1,6 @@
 module github.com/wardviaene/golang-for-devops-course/azure-instance
 
-go 1.18
+go 1.24
 
 require (
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.1.0

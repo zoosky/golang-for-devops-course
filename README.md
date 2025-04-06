@@ -2,7 +2,6 @@
 
 Course material for [Golang For DevOps And Cloud Engineers](https://www.udemy.com/course/golang-for-devops-and-cloud-engineers/?referralCode=5A05F011338E0C54EAE7)
 
-
  To run all tests:
 
     ./run-tests.sh
@@ -41,3 +40,14 @@ The binary naming follows the pattern:
   For example:
   ./builds/http-get-.-http-get
   ./builds/hello-world-.-hello-world
+
+ The upgrade to Go 1.24.2 has been completed successfully. Steps:
+
+  1. Used the update-go-version.sh script to update all go.mod files to Go 1.24
+  2. Updated the go.work file to use Go 1.24 and the Go 1.24.2 toolchain
+  3. Fixed deprecated `io/ioutil` imports using `fix-ioutil.sh`
+  4. Fixed unused imports with `fix-unused.sh` and `final-fix.sh`
+  5. Verified the upgrade by successfully building all modules with build-all.sh
+  6. Ran tests to confirm everything works correctly (with expected failures in template code)
+
+  All modules are now using Go 1.24 with the 1.24.2 toolchain.

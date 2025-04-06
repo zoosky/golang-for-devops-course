@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"time"
@@ -59,7 +58,7 @@ func getClient() (*kubernetes.Clientset, error) {
 func deploy(ctx context.Context, client *kubernetes.Clientset) (map[string]string, int32, error) {
 	var deployment *v1.Deployment
 
-	appFile, err := ioutil.ReadFile("app.yaml")
+	appFile, err := os.ReadFile("app.yaml")
 	if err != nil {
 		return nil, 0, fmt.Errorf("readfile error: %s", err)
 	}

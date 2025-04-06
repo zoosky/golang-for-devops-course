@@ -5,14 +5,14 @@ import (
 	"crypto/x509"
 	"fmt"
 	"io"
-	"io/ioutil"
+	"os"
 	"log"
 	"net/http"
 	"time"
 )
 
 func main() {
-	caBytes, err := ioutil.ReadFile("ca.crt")
+	caBytes, err := os.ReadFile("ca.crt")
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -3,10 +3,9 @@ package main
 import (
 	"errors"
 	"fmt"
-	"io/ioutil"
+	"os"
 	"log"
 	"net/http"
-	"os"
 
 	"github.com/wardviaene/golang-for-devops-course/oidc-demo/pkg/server"
 	"github.com/wardviaene/golang-for-devops-course/ssh-demo"
@@ -24,7 +23,7 @@ func main() {
 		fmt.Printf("Error: %s doesn't exist\n", configFile)
 		os.Exit(1)
 	}
-	config, err := ioutil.ReadFile(configFile)
+	config, err := os.ReadFile(configFile)
 	if err != nil {
 		log.Fatalf("Failed to load %s, err: %v", configFile, err)
 	}
@@ -39,7 +38,7 @@ func main() {
 			os.Exit(1)
 		}
 	} else {
-		privateKey, err = ioutil.ReadFile("enckey.pem")
+		privateKey, err = os.ReadFile("enckey.pem")
 		if err != nil {
 			log.Fatalf("Failed to load authorized_keys, err: %v", err)
 		}

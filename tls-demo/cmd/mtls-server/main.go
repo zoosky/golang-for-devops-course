@@ -4,7 +4,7 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"fmt"
-	"io/ioutil"
+	"os"
 	"log"
 	"net/http"
 )
@@ -22,7 +22,7 @@ func showCommonName(w http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-	caBytes, err := ioutil.ReadFile("ca.crt")
+	caBytes, err := os.ReadFile("ca.crt")
 	if err != nil {
 		log.Fatal(err)
 	}

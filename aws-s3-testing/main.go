@@ -5,7 +5,6 @@ import (
 	"context"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
@@ -94,7 +93,7 @@ func createS3Bucket(ctx context.Context, s3Client S3Client) error {
 }
 
 func uploadToS3Bucket(ctx context.Context, uploader S3Uploader, filename string) error {
-	testFile, err := ioutil.ReadFile(filename)
+	testFile, err := os.ReadFile(filename)
 	if err != nil {
 		return fmt.Errorf("ReadFile error: %s", err)
 	}

@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 
 	"github.com/spf13/cobra"
 	"github.com/wardviaene/golang-for-devops-course/tls-demo/pkg/cert"
@@ -29,12 +29,12 @@ var certCreateCmd = &cobra.Command{
 	Short: "cert commands",
 	Long:  `commands to create the certificates`,
 	Run: func(cmd *cobra.Command, args []string) {
-		caKeyBytes, err := ioutil.ReadFile(caKey)
+		caKeyBytes, err := os.ReadFile(caKey)
 		if err != nil {
 			fmt.Printf("CA key read error: %s\n", err)
 			return
 		}
-		caCertBytes, err := ioutil.ReadFile(caCert)
+		caCertBytes, err := os.ReadFile(caCert)
 		if err != nil {
 			fmt.Printf("CA cert read error: %s\n", err)
 			return

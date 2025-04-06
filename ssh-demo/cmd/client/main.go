@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 	"log"
 
 	"golang.org/x/crypto/ssh"
@@ -12,11 +12,11 @@ func main() {
 	var (
 		err error
 	)
-	privateKey, err := ioutil.ReadFile("mykey.pem")
+	privateKey, err := os.ReadFile("mykey.pem")
 	if err != nil {
 		log.Fatalf("Failed to load mykey.pem, err: %v", err)
 	}
-	publicKey, err := ioutil.ReadFile("server.pub")
+	publicKey, err := os.ReadFile("server.pub")
 	if err != nil {
 		log.Fatalf("Failed to load server.pub, err: %v", err)
 	}

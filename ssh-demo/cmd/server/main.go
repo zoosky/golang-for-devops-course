@@ -2,9 +2,8 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"log"
 	"os"
+	"log"
 
 	"github.com/wardviaene/golang-for-devops-course/ssh-demo"
 )
@@ -13,12 +12,12 @@ func main() {
 	var (
 		err error
 	)
-	serverKeyBytes, err := ioutil.ReadFile("server.pem")
+	serverKeyBytes, err := os.ReadFile("server.pem")
 	if err != nil {
 		log.Fatalf("Failed to load authorized_keys, err: %v", err)
 	}
 
-	authorizedKeysBytes, err := ioutil.ReadFile("mykey.pub")
+	authorizedKeysBytes, err := os.ReadFile("mykey.pub")
 	if err != nil {
 		log.Fatalf("Failed to load authorized_keys, err: %v", err)
 	}

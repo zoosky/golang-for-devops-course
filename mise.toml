@@ -1,0 +1,5 @@
+[tools]
+go = "1.18"
+
+[env]
+GO111MODULE = "on"

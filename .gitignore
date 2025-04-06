@@ -1,1 +1,39 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Binary directories 
+/bin/
+/builds/
+/dist/
+
+# Module specific binaries (automatically created by go build)
+/*/bin/
+/*/*/bin/
+/*/*/*/bin/
+*/main
+*/*/main
+*/*/*/main
+
+# Test binaries
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Dependency directories
+/vendor/
+/Godeps/
+
+# Go workspace file
+go.work.sum
+
+# IDE/Editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
 .DS_Store
